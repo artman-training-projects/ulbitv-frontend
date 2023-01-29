@@ -1,3 +1,3 @@
-import { someFn } from "./test";
+import { someFn } from "./someFn";
 
-someFn(1);
+document.body.innerText = someFn(10);

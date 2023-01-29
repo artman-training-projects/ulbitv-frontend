@@ -1,7 +1,8 @@
-import { ProgressPlugin, WebpackPluginInstance } from "webpack";
+import { ProgressPlugin } from "webpack";
+import type { WebpackPluginInstance } from "webpack";
 import HTMLWebpackPlugin from "html-webpack-plugin";
 
-import { IBuildOptions } from "./types/config";
+import type { IBuildOptions } from "./types/config";
 
 export function buildPlugins({
 	paths,

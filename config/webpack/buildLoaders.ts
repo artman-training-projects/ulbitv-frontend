@@ -1,4 +1,4 @@
-import { RuleSetRule } from "webpack";
+import type { RuleSetRule } from "webpack";
 
 export function buildLoaders(): RuleSetRule[] {
 	const tsLoader = {
