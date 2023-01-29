@@ -13,6 +13,7 @@
 		// если в пакете нет default export, то он будет создан автоматически
 		"allowSyntheticDefaultImports": true
 	},
+	"baseUrl": ".",
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"
