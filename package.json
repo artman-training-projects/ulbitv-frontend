@@ -1,0 +1,27 @@
+{
+	"name": "production-on-react",
+	"version": "1.0.0",
+	"license": "Unlicense",
+	"author": "Vladimir Artyukhov",
+	"description": "В Production на React",
+	"keywords": [],
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.21",
+		"@types/webpack": "^5.28.0",
+		"html-webpack-plugin": "^5.5.0",
+		"ts-loader": "^9.2.6",
+		"ts-node": "^10.5.0",
+		"typescript": "^4.5.5",
+		"webpack": "^5.69.1",
+		"webpack-cli": "^4.9.2"
+	},
+	"homepage": "https://github.com/artman-training-projects/ulbitv-frontend#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/artman-training-projects/ulbitv-frontend.git"
+	}
+}
