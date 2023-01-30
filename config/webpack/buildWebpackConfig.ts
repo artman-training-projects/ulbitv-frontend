@@ -1,4 +1,4 @@
-import type { Configuration } from "webpack";
+import type { Configuration as WebpackConfiguration } from "webpack";
 
 import type { IBuildOptions } from "./types/config";
 
@@ -7,7 +7,9 @@ import { buildPlugins } from "./buildPlugin";
 import { buildResolvers } from "./buildResolvers";
 import { buildDevServer } from "./buildDevServer";
 
-export function buildWebpackConfig(options: IBuildOptions): Configuration {
+export function buildWebpackConfig(
+	options: IBuildOptions
+): WebpackConfiguration {
 	const {
 		mode,
 		paths: { build, entry },
@@ -23,7 +25,7 @@ export function buildWebpackConfig(options: IBuildOptions): Configuration {
 			clean: true,
 		},
 		module: {
-			rules: buildLoaders(),
+			rules: buildLoaders(options),
 		},
 		resolve: buildResolvers(),
 		plugins: buildPlugins(options),

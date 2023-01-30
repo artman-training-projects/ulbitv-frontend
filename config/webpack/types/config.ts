@@ -1,4 +1,4 @@
-import type { Configuration } from "webpack";
+import type { Configuration as WebpackConfiguration } from "webpack";
 
 export interface IBuildPaths {
 	entry: string;
@@ -7,13 +7,13 @@ export interface IBuildPaths {
 }
 
 export interface IBuildOptions {
-	mode: Configuration["mode"];
+	mode: WebpackConfiguration["mode"];
 	paths: IBuildPaths;
 	isDev: boolean;
 	port: number;
 }
 
 export interface IBuildEnv {
-	mode: Configuration["mode"];
+	mode: WebpackConfiguration["mode"];
 	port: number;
 }

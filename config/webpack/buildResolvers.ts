@@ -1,6 +1,6 @@
-import type { ResolveOptions } from "webpack";
+import type { ResolveOptions as WebpackResolveOptions } from "webpack";
 
-export function buildResolvers(): ResolveOptions {
+export function buildResolvers(): WebpackResolveOptions {
 	return {
 		extensions: [".tsx", ".ts", ".js", ".jsx"],
 	};
