@@ -8,7 +8,9 @@ const defaultTheme = localStorage.getItem(
 	LOCAL_STORAGE_THEME_KEY || ETheme.Light
 ) as ETheme;
 
-const ThemeProvider = ({ children }: ThemeProviderProps): ReactElement => {
+export const ThemeProvider = ({
+	children,
+}: ThemeProviderProps): ReactElement => {
 	const [theme, setTheme] = useState<ETheme>(defaultTheme);
 
 	const defaultProps = useMemo(
@@ -25,5 +27,3 @@ const ThemeProvider = ({ children }: ThemeProviderProps): ReactElement => {
 		</ThemeContext.Provider>
 	);
 };
-
-export default ThemeProvider;
