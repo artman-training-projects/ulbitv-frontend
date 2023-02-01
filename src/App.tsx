@@ -1,13 +1,20 @@
-import { Suspense } from "react";
+import { ReactElement, Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
-import "./index.scss";
 import { AboutPageLazy } from "./pages/AboutPage/AboutPage.lazy";
 import { MainPageLazy } from "./pages/MainPage/MainPage.lazy";
 
-const App = () => {
+import { useTheme } from "./theme/useTheme";
+
+import "./styles/index.scss";
+
+const App = (): ReactElement => {
+	const { theme, toggleTheme } = useTheme();
+
 	return (
-		<div className="app">
+		<div className={`app ${theme}`}>
+			<button onClick={toggleTheme}>Переключить тему</button>
+
 			<Link to="/">Главная</Link>
 			<Link to="/about">О сайте</Link>
 
