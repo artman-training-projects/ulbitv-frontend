@@ -7,10 +7,7 @@
 		"jsx": "react-jsx",
 		"allowJs": true,
 		"moduleResolution": "node",
-		// Позволяет работать с пакетами commonJS(require() module.export),
-		// как с обычными пакетами, с помощью import
 		"esModuleInterop": true,
-		// если в пакете нет default export, то он будет создан автоматически
 		"allowSyntheticDefaultImports": true
 	},
 	"baseUrl": ".",
