@@ -5,6 +5,7 @@ import { AboutPageLazy } from "./pages/AboutPage/AboutPage.lazy";
 import { MainPageLazy } from "./pages/MainPage/MainPage.lazy";
 
 import { useTheme } from "./theme/useTheme";
+import { classNames } from "./helpers/classNames/classNames";
 
 import "./styles/index.scss";
 
@@ -12,7 +13,7 @@ const App = (): ReactElement => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<div className={`app ${theme}`}>
+		<div className={classNames("app", {}, [theme])}>
 			<button onClick={toggleTheme}>Переключить тему</button>
 
 			<Link to="/">Главная</Link>
