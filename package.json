@@ -1,13 +1,13 @@
 {
 	"name": "production-on-react",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"license": "Unlicense",
 	"author": "Vladimir Artyukhov",
 	"description": "В Production на React",
 	"keywords": [],
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack serve --env port=5000 mode=development",
+		"dev": "webpack serve --env port=5000 mode=development",
 		"build:dev": "webpack --env mode=development",
 		"build:prod": "webpack --env mode=production"
 	},
