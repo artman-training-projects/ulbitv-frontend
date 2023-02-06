@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
 import { classNames } from "shared/lib";
-import { AppLink } from "shared/ui";
-import { EAppLinkTheme } from "shared/ui/AppLink/interfaces";
+import { AppLink, ThemeSwitcher, EAppLinkTheme } from "shared/ui";
 
 import { INavbarProps } from "./interfaces";
 import styles from "./Navbar.module.scss";
@@ -9,6 +8,7 @@ import styles from "./Navbar.module.scss";
 const Navbar = ({ className }: INavbarProps): ReactElement => {
 	return (
 		<div className={classNames(styles.navbar, {}, [className])}>
+			<ThemeSwitcher />
 			<div className={styles.links}>
 				<AppLink
 					theme={EAppLinkTheme.Secondary}

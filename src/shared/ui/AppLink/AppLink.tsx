@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { classNames } from "shared/lib";
 
-import { EAppLinkTheme, IAppLink } from "./interfaces";
+import { EAppLinkTheme, IAppLinkProps } from "./interfaces";
 import styles from "./AppLink.module.scss";
 
 const AppLink = ({
@@ -12,7 +12,7 @@ const AppLink = ({
 	to,
 	theme = EAppLinkTheme.Primary,
 	...otherProps
-}: IAppLink): ReactElement => {
+}: IAppLinkProps): ReactElement => {
 	return (
 		<Link
 			to={to}

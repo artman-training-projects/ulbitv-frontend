@@ -6,7 +6,7 @@ export enum EAppLinkTheme {
 	Secondary = "secondary",
 }
 
-export interface IAppLink extends LinkProps {
+export interface IAppLinkProps extends LinkProps {
 	children: ReactNode;
 	className?: string;
 	theme?: EAppLinkTheme;
