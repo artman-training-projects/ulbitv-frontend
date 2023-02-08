@@ -23,3 +23,5 @@ declare module "*.jpeg" {
 	const src: string;
 	export default src;
 }
+
+declare const __IS_DEV__: boolean;

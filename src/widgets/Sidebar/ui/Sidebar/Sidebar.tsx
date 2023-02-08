@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 
 import { classNames } from "shared/lib";
-import { ThemeSwitcher } from "shared/ui";
+import { LangSwitcher, ThemeSwitcher } from "shared/ui";
 
 import { ISidebarProps } from "./interfaces";
 
@@ -21,6 +21,7 @@ const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 			<button onClick={handleToggle}>toggle</button>
 			<div className={styles.switchers}>
 				<ThemeSwitcher />
+				<LangSwitcher />
 			</div>
 		</div>
 	);

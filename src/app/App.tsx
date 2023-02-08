@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { ReactElement, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 
 import { useTheme } from "shared/providers";
 import { classNames } from "shared/lib";
@@ -13,12 +14,14 @@ const App = (): ReactElement => {
 
 	return (
 		<div className={classNames("app", {}, [theme])}>
-			<Navbar />
+			<Suspense fallback="">
+				<Navbar />
 
-			<div className="content-page">
-				<Sidebar />
-				<AppRoute />
-			</div>
+				<div className="content-page">
+					<Sidebar />
+					<AppRoute />
+				</div>
+			</Suspense>
 		</div>
 	);
 };
