@@ -10,15 +10,14 @@ const Button = ({
 	className,
 	theme = EThemeButton.Clear,
 	...otherProps
-}: IButtonProps): ReactElement => {
-	return (
-		<button
-			className={classNames(styles.button, {}, [className, styles[theme]])}
-			{...otherProps}
-		>
-			{children}
-		</button>
-	);
-};
+}: IButtonProps): ReactElement => (
+	<button
+		type="button"
+		className={classNames(styles.button, {}, [className, styles[theme]])}
+		{...otherProps}
+	>
+		{children}
+	</button>
+);
 
 export default Button;

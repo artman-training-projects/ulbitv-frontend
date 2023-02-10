@@ -1,5 +1,4 @@
 import { ReactElement, Suspense } from "react";
-import { useTranslation } from "react-i18next";
 
 import { useTheme } from "shared/providers";
 import { classNames } from "shared/lib";

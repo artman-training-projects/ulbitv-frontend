@@ -5,7 +5,7 @@ import { LOCAL_STORAGE_THEME_KEY } from "./constants";
 import { ETheme, ThemeProviderProps } from "./interfaces";
 
 const defaultTheme = localStorage.getItem(
-	LOCAL_STORAGE_THEME_KEY || ETheme.Light
+	LOCAL_STORAGE_THEME_KEY || ETheme.Light,
 ) as ETheme;
 
 export const ThemeProvider = ({
@@ -18,7 +18,7 @@ export const ThemeProvider = ({
 			theme,
 			setTheme,
 		}),
-		[theme]
+		[theme],
 	);
 
 	return (

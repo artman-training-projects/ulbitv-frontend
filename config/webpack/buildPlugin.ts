@@ -1,5 +1,6 @@
-import { HotModuleReplacementPlugin, WebpackPluginInstance } from "webpack";
-import { ProgressPlugin, DefinePlugin } from "webpack";
+import {
+	HotModuleReplacementPlugin, WebpackPluginInstance, ProgressPlugin, DefinePlugin,
+} from "webpack";
 import HTMLWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 

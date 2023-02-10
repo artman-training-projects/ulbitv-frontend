@@ -12,16 +12,14 @@ const AppLink = ({
 	to,
 	theme = EAppLinkTheme.Primary,
 	...otherProps
-}: IAppLinkProps): ReactElement => {
-	return (
-		<Link
-			to={to}
-			className={classNames(styles.appLink, {}, [className, styles[theme]])}
-			{...otherProps}
-		>
-			{children}
-		</Link>
-	);
-};
+}: IAppLinkProps): ReactElement => (
+	<Link
+		to={to}
+		className={classNames(styles.appLink, {}, [className, styles[theme]])}
+		{...otherProps}
+	>
+		{children}
+	</Link>
+);
 
 export default AppLink;

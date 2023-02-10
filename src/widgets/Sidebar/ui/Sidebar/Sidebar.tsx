@@ -18,7 +18,9 @@ const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 				className,
 			])}
 		>
-			<button onClick={handleToggle}>toggle</button>
+			<button type="button" onClick={handleToggle}>
+				toggle
+			</button>
 			<div className={styles.switchers}>
 				<ThemeSwitcher />
 				<LangSwitcher />
