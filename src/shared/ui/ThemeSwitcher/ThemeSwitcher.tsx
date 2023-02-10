@@ -6,7 +6,6 @@ import { Button, EThemeButton } from "shared/ui";
 import { LightIcon, DarkIcon } from "shared/assets/icons";
 
 import { IThemeSwitcherProps } from "./interfaces";
-import styles from "./ThemeSwitcher.module.scss";
 
 const ThemeSwitcher = ({ className }: IThemeSwitcherProps): ReactElement => {
 	const { theme, toggleTheme } = useTheme();
@@ -14,7 +13,7 @@ const ThemeSwitcher = ({ className }: IThemeSwitcherProps): ReactElement => {
 		<Button
 			theme={EThemeButton.Clear}
 			onClick={toggleTheme}
-			className={classNames(styles.themeSwitcher, {}, [className])}
+			className={classNames("", {}, [className])}
 		>
 			{theme === ETheme.Light ? <LightIcon /> : <DarkIcon />}
 		</Button>
