@@ -2,13 +2,13 @@ import { ReactElement } from "react";
 
 import { classNames } from "shared/lib";
 
-import { EThemeButton, IButtonProps } from "./interfaces";
+import { IButtonProps } from "./interfaces";
 import styles from "./Button.module.scss";
 
 const Button = ({
 	children,
 	className,
-	theme = EThemeButton.Clear,
+	theme,
 	...otherProps
 }: IButtonProps): ReactElement => (
 	<button
