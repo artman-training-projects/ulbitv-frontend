@@ -8,7 +8,7 @@ import { buildResolvers } from "./buildResolvers";
 import { buildDevServer } from "./buildDevServer";
 
 export function buildWebpackConfig(
-	options: IBuildOptions,
+	options: IBuildOptions
 ): WebpackConfiguration {
 	const {
 		mode,
