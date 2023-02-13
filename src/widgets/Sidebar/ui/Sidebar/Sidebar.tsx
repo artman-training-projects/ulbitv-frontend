@@ -14,11 +14,12 @@ const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 
 	return (
 		<div
+			data-testid="Sidebar"
 			className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
 				className,
 			])}
 		>
-			<button type="button" onClick={handleToggle}>
+			<button data-testid="Sidebar-toggle" type="button" onClick={handleToggle}>
 				toggle
 			</button>
 			<div className={styles.switchers}>

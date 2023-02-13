@@ -14,7 +14,7 @@
 			"*": ["./src/*"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx"],
+	"include": ["**/*.ts", "**/*.tsx", "config/jest/setup.ts"],
 	"exclude": ["node_modules"],
 	"ts-node": {
 		"compilerOptions": {
