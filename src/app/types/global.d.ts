@@ -1,15 +1,11 @@
-import React from "react";
-
 declare module "*.scss" {
-	interface IClassNames {
-		[className: string]: string;
-	}
-
-	const classNames: IClassNames;
+	const classNames: Record<string, string>;
 	export = classNames;
 }
 
 declare module "*.svg" {
+	import React from "react";
+
 	export const src: string;
 
 	const ReactComponent: React.VFC<React.SVGProps<SVGSVGElement>>;

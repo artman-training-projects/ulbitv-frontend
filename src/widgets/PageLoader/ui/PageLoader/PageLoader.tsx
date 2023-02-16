@@ -7,7 +7,7 @@ import { IPageLoaderProps } from "./interfaces";
 import styles from "./PageLoader.module.scss";
 
 const PageLoader = ({ className }: IPageLoaderProps): ReactElement => (
-	<div className={classNames(styles.notFound, {}, [className])}>
+	<div className={classNames(styles.pageLoader, {}, [className])}>
 		<Loader />
 	</div>
 );
