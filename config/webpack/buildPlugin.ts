@@ -16,7 +16,7 @@ export function buildPlugins(options: IBuildOptions): WebpackPluginInstance[] {
 		isDev,
 	} = options;
 
-	return [
+	const plugins = [
 		new ProgressPlugin(),
 		new HTMLWebpackPlugin({
 			template: html,
@@ -28,9 +28,16 @@ export function buildPlugins(options: IBuildOptions): WebpackPluginInstance[] {
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 		}),
-		new HotModuleReplacementPlugin(),
-		new BundleAnalyzerPlugin({
-			openAnalyzer: false,
-		}),
 	];
+
+	if (isDev) {
+		plugins.push(
+			new HotModuleReplacementPlugin(),
+			new BundleAnalyzerPlugin({
+				openAnalyzer: false,
+			})
+		);
+	}
+
+	return plugins;
 }
