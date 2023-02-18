@@ -1,2 +1,2 @@
 export { classNames } from "./classNames/classNames";
-export { renderWithTranslation } from "./tests/renderWithTranslation";
+export { renderComponent } from "./tests/renderComponent";
