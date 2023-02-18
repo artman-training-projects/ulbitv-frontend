@@ -2,7 +2,7 @@ import { ReactElement, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PageLoader } from "widgets/PageLoader";
 
-import { routeConfig } from "../config/routeConfig";
+import { routeConfig } from "shared/config/route";
 
 const AppRoute = (): ReactElement => (
 	<Suspense fallback={<PageLoader />}>

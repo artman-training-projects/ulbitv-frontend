@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { StyleDecorator } from "shared/config/storybook/StyleDecorator";
-import { ETheme } from "shared/providers";
+import { StyleDecorator } from "shared/config/storybook";
+import { ETheme } from "shared/providers/ThemeProvider";
 
 import Navbar from "./Navbar";
 import { INavbarProps } from "./interfaces";
