@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 
 import { classNames } from "shared/lib";
-import { Button, EThemeButton } from "shared/ui";
+import { Button, EButtonTheme } from "shared/ui";
 
 import { ILangSwitcherProps } from "./interfaces";
 
-const LangSwitcher = ({ className }: ILangSwitcherProps) => {
+const LangSwitcher = ({ className, short }: ILangSwitcherProps) => {
 	const { t, i18n } = useTranslation();
 
 	const handleToggleTranslate = () =>
@@ -13,11 +13,11 @@ const LangSwitcher = ({ className }: ILangSwitcherProps) => {
 
 	return (
 		<Button
-			theme={EThemeButton.Clear}
+			theme={EButtonTheme.Clear}
 			onClick={handleToggleTranslate}
 			className={classNames("", {}, [className])}
 		>
-			{t("Язык")}
+			{t(short ? "Яз" : "Язык")}
 		</Button>
 	);
 };
