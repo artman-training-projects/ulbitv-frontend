@@ -5,7 +5,6 @@ import { classNames } from "shared/lib";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 
-import "./styles/index.scss";
 import AppRoute from "./router/AppRoute";
 
 const App = (): ReactElement => {

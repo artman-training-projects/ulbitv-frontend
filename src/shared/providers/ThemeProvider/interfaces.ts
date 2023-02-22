@@ -10,7 +10,9 @@ export interface IThemeContextProps {
 	setTheme?: (theme: ETheme) => void;
 }
 
-export interface ThemeProviderProps extends PropsWithChildren<any> {}
+export interface ThemeProviderProps extends PropsWithChildren<any> {
+	initialTheme?: ETheme;
+}
 
 export interface IUseThemeResult {
 	toggleTheme: () => void;

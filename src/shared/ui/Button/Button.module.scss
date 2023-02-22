@@ -4,12 +4,17 @@
 	cursor: pointer;
 }
 
-.clear {
+.clear,
+.clearInverted {
 	margin: 0;
 	padding: 0;
 	border: none;
 	outline: none;
 	background: none;
+}
+
+.clearInverted {
+	color: var(--inverted-primary-color);
 }
 
 .outline {

@@ -3,5 +3,6 @@
 	"Яз": "Ru",
 	"throw error": "throw error",
 	"Произошла непредвиденная ошибка": "something went wrong",
-	"Обновить страницу": "reload page"
+	"Обновить страницу": "reload page",
+	"Войти": "Login"
 }

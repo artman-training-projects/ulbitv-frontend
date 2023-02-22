@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export enum EButtonTheme {
 	Clear = "clear",
+	ClearInverted = "clearInverted",
 	Outline = "outline",
 	Background = "background",
 	BackgroundInverted = "backgroundInverted",
