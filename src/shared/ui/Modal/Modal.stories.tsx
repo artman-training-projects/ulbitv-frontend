@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { StyleDecorator } from "shared/config/storybook";
 import { ETheme } from "app/providers/ThemeProvider";
 
-import Modal from "./Modal";
+import { Modal } from "./Modal";
 import { IModalProps } from "./interfaces";
 
 export default {

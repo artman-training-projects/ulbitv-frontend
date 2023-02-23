@@ -6,7 +6,9 @@ import { classNames } from "shared/lib";
 import { INotFoundPageProps } from "./interfaces";
 import styles from "./NotFoundPage.module.scss";
 
-const NotFoundPage = ({ className }: INotFoundPageProps): ReactElement => {
+export const NotFoundPage = ({
+	className,
+}: INotFoundPageProps): ReactElement => {
 	const { t } = useTranslation("notFound");
 
 	return (
@@ -15,5 +17,3 @@ const NotFoundPage = ({ className }: INotFoundPageProps): ReactElement => {
 		</div>
 	);
 };
-
-export default NotFoundPage;

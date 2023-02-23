@@ -6,7 +6,7 @@ import { classNames } from "shared/lib";
 import { EAppLinkTheme, IAppLinkProps } from "./interfaces";
 import styles from "./AppLink.module.scss";
 
-const AppLink = ({
+export const AppLink = ({
 	className,
 	children,
 	to,
@@ -21,5 +21,3 @@ const AppLink = ({
 		{children}
 	</Link>
 );
-
-export default AppLink;

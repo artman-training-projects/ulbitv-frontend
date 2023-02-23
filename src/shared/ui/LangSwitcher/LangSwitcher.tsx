@@ -5,7 +5,7 @@ import { Button, EButtonTheme } from "shared/ui";
 
 import { ILangSwitcherProps } from "./interfaces";
 
-const LangSwitcher = ({ className, short }: ILangSwitcherProps) => {
+export const LangSwitcher = ({ className, short }: ILangSwitcherProps) => {
 	const { t, i18n } = useTranslation();
 
 	const handleToggleTranslate = () =>
@@ -21,5 +21,3 @@ const LangSwitcher = ({ className, short }: ILangSwitcherProps) => {
 		</Button>
 	);
 };
-
-export default LangSwitcher;

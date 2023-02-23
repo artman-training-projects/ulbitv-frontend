@@ -6,10 +6,8 @@ import { Loader } from "shared/ui";
 import { IPageLoaderProps } from "./interfaces";
 import styles from "./PageLoader.module.scss";
 
-const PageLoader = ({ className }: IPageLoaderProps): ReactElement => (
+export const PageLoader = ({ className }: IPageLoaderProps): ReactElement => (
 	<div className={classNames(styles.pageLoader, {}, [className])}>
 		<Loader />
 	</div>
 );
-
-export default PageLoader;

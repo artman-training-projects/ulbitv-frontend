@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import AppLink from "./AppLink";
+import { AppLink } from "./AppLink";
 import { IAppLinkProps, EAppLinkTheme } from "./interfaces";
 
 export default {

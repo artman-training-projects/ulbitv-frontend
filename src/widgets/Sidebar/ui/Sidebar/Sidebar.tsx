@@ -19,7 +19,7 @@ import { ISidebarProps } from "./interfaces";
 
 import styles from "./Sidebar.module.scss";
 
-const Sidebar = ({ className }: ISidebarProps): ReactElement => {
+export const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 	const [collapsed, setCollapsed] = useState(false);
 	const { t: tAbout } = useTranslation("about");
 	const { t: tMain } = useTranslation("main");
@@ -72,5 +72,3 @@ const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 		</div>
 	);
 };
-
-export default Sidebar;

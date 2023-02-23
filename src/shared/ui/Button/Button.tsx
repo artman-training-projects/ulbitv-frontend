@@ -5,7 +5,7 @@ import { classNames } from "shared/lib";
 import { EButtonSize, IButtonProps } from "./interfaces";
 import styles from "./Button.module.scss";
 
-const Button = ({
+export const Button = ({
 	children,
 	className,
 	theme,
@@ -31,5 +31,3 @@ const Button = ({
 		</button>
 	);
 };
-
-export default Button;

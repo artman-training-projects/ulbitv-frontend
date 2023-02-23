@@ -1,6 +1,4 @@
-import {
-	ReactElement, useCallback, useEffect, useRef, useState
-} from "react";
+import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
 
 import { classNames } from "shared/lib";
 import { Portal } from "shared/ui";
@@ -9,7 +7,7 @@ import { IModalProps } from "./interfaces";
 import { ANIMATION_DELAY } from "./constants";
 import styles from "./Modal.module.scss";
 
-const Modal = ({
+export const Modal = ({
 	className,
 	children,
 	isOpen,
@@ -66,5 +64,3 @@ const Modal = ({
 		</Portal>
 	);
 };
-
-export default Modal;

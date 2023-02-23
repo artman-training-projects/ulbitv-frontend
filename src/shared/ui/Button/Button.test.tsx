@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import Button from "./Button";
+
+import { Button } from "./Button";
 import { EButtonTheme } from "./interfaces";
 
-describe("Button", () => {
+describe("<Button />", () => {
 	test("render", () => {
 		render(<Button>test</Button>);
 

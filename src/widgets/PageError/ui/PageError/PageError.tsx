@@ -9,7 +9,7 @@ import { Button } from "shared/ui";
 import styles from "./PageError.module.scss";
 import { IPageErrorProps } from "./interfaces";
 
-const PageError = ({ className }: IPageErrorProps): ReactElement => {
+export const PageError = ({ className }: IPageErrorProps): ReactElement => {
 	const { t } = useTranslation();
 
 	// eslint-disable-next-line no-restricted-globals
@@ -22,5 +22,3 @@ const PageError = ({ className }: IPageErrorProps): ReactElement => {
 		</div>
 	);
 };
-
-export default PageError;

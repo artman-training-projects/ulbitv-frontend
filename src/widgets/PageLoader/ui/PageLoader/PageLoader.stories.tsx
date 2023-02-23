@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { StyleDecorator } from "shared/config/storybook";
 import { ETheme } from "app/providers/ThemeProvider";
 
-import PageLoader from "./PageLoader";
+import { PageLoader } from "./PageLoader";
 import { IPageLoaderProps } from "./interfaces";
 
 export default {

@@ -7,7 +7,7 @@ import { Button, EButtonTheme, Modal } from "shared/ui";
 import { INavbarProps } from "./interfaces";
 import styles from "./Navbar.module.scss";
 
-const Navbar = ({ className }: INavbarProps): ReactElement => {
+export const Navbar = ({ className }: INavbarProps): ReactElement => {
 	const { t } = useTranslation();
 	const [isAuthModal, setIsAuthModal] = useState(false);
 
@@ -32,5 +32,3 @@ const Navbar = ({ className }: INavbarProps): ReactElement => {
 		</div>
 	);
 };
-
-export default Navbar;

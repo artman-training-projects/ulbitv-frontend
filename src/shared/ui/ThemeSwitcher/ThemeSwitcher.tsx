@@ -7,7 +7,9 @@ import { LightIcon, DarkIcon } from "shared/assets/icons";
 
 import { IThemeSwitcherProps } from "./interfaces";
 
-const ThemeSwitcher = ({ className }: IThemeSwitcherProps): ReactElement => {
+export const ThemeSwitcher = ({
+	className,
+}: IThemeSwitcherProps): ReactElement => {
 	const { theme, toggleTheme } = useTheme();
 	return (
 		<Button
@@ -19,5 +21,3 @@ const ThemeSwitcher = ({ className }: IThemeSwitcherProps): ReactElement => {
 		</Button>
 	);
 };
-
-export default ThemeSwitcher;
