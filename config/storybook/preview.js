@@ -1,6 +1,6 @@
 import { addDecorator } from "@storybook/react";
 
-import { ETheme } from "../../src/shared/providers/ThemeProvider";
+import { ETheme } from "../../src/app/providers/ThemeProvider";
 
 import {
 	StyleDecorator,

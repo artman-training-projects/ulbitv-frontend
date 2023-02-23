@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { StyleDecorator } from "shared/config/storybook";
-import { ETheme } from "shared/providers/ThemeProvider";
+import { ETheme } from "app/providers/ThemeProvider";
 
 import Sidebar from "./Sidebar";
 import { ISidebarProps } from "./interfaces";

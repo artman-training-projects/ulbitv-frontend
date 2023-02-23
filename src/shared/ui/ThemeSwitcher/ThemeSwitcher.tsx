@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
 import { classNames } from "shared/lib";
-import { ETheme, useTheme } from "shared/providers/ThemeProvider";
+import { ETheme, useTheme } from "app/providers/ThemeProvider";
 import { Button, EButtonTheme } from "shared/ui";
 import { LightIcon, DarkIcon } from "shared/assets/icons";
 

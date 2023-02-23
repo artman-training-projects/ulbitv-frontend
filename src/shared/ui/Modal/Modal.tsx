@@ -1,4 +1,6 @@
-import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import {
+	ReactElement, useCallback, useEffect, useRef, useState
+} from "react";
 
 import { classNames } from "shared/lib";
 import { Portal } from "shared/ui";

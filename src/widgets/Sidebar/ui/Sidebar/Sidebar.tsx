@@ -1,4 +1,4 @@
-import { RoutePath } from "shared/config/route";
+import { RoutePath } from "app/providers/router";
 import { ReactElement, useState } from "react";
 import { useTranslation } from "react-i18next";
 

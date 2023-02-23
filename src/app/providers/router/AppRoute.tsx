@@ -2,9 +2,9 @@ import { ReactElement, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PageLoader } from "widgets/PageLoader";
 
-import { routeConfig } from "shared/config/route";
+import { routeConfig } from "app/providers/router";
 
-const AppRoute = (): ReactElement => (
+export const AppRoute = (): ReactElement => (
 	<Suspense fallback={<PageLoader />}>
 		<Routes>
 			{Object.values(routeConfig).map(({ path, element }) => (
@@ -17,5 +17,3 @@ const AppRoute = (): ReactElement => (
 		</Routes>
 	</Suspense>
 );
-
-export default AppRoute;

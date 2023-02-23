@@ -1,6 +1,6 @@
 import { Story } from "@storybook/react";
 
-import { ETheme, ThemeProvider } from "shared/providers/ThemeProvider";
+import { ETheme, ThemeProvider } from "app/providers/ThemeProvider";
 
 import "app/styles/index.scss";
 

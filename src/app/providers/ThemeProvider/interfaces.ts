@@ -10,7 +10,7 @@ export interface IThemeContextProps {
 	setTheme?: (theme: ETheme) => void;
 }
 
-export interface ThemeProviderProps extends PropsWithChildren<any> {
+export interface IThemeProviderProps extends PropsWithChildren<any> {
 	initialTheme?: ETheme;
 }
 
