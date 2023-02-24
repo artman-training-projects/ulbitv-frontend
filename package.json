@@ -5,7 +5,9 @@
 	"author": "Vladimir Artyukhov",
 	"description": "В Production на React",
 	"scripts": {
-		"dev": "webpack serve --env port=5000 mode=development",
+		"start:dev:server": "node ./json-server/index.js",
+		"start:dev:app": "webpack serve --env port=5000 mode=development",
+		"start": "npm run start:dev:server | npm run start:dev:app",
 		"build:dev": "webpack --env mode=development",
 		"build:prod": "webpack --env mode=production",
 		"lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -73,6 +75,7 @@
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^29.4.3",
 		"jest-environment-jsdom": "^29.4.3",
+		"json-server": "^0.17.2",
 		"loki": "^0.31.0",
 		"mini-css-extract-plugin": "^2.7.2",
 		"reg-cli": "^0.17.7",
