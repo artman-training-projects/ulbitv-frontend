@@ -13,12 +13,12 @@ export const PageError = ({ className }: IPageErrorProps): ReactElement => {
 	const { t } = useTranslation();
 
 	// eslint-disable-next-line no-restricted-globals
-	const handleReloadPage = () => location.reload();
+	const onReloadPageClick = () => location.reload();
 
 	return (
 		<div className={classNames(styles.pageError, {}, [className])}>
 			<p>{t("Произошла непредвиденная ошибка")}</p>
-			<Button onClick={handleReloadPage}>{t("Обновить страницу")}</Button>
+			<Button onClick={onReloadPageClick}>{t("Обновить страницу")}</Button>
 		</div>
 	);
 };

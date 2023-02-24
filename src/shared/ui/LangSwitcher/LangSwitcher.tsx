@@ -8,13 +8,13 @@ import { ILangSwitcherProps } from "./interfaces";
 export const LangSwitcher = ({ className, short }: ILangSwitcherProps) => {
 	const { t, i18n } = useTranslation();
 
-	const handleToggleTranslate = () =>
+	const onToggleTranslateClick = () =>
 		i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
 
 	return (
 		<Button
 			theme={EButtonTheme.Clear}
-			onClick={handleToggleTranslate}
+			onClick={onToggleTranslateClick}
 			className={classNames("", {}, [className])}
 		>
 			{t(short ? "Яз" : "Язык")}

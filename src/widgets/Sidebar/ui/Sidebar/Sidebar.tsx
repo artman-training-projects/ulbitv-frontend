@@ -24,7 +24,7 @@ export const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 	const { t: tAbout } = useTranslation("about");
 	const { t: tMain } = useTranslation("main");
 
-	const handleToggle = (): void => setCollapsed((prev) => !prev);
+	const onToggleClick = (): void => setCollapsed((prev) => !prev);
 
 	return (
 		<div
@@ -37,7 +37,7 @@ export const Sidebar = ({ className }: ISidebarProps): ReactElement => {
 				className={styles.collapsedButton}
 				data-testid="Sidebar-toggle"
 				type="button"
-				onClick={handleToggle}
+				onClick={onToggleClick}
 				square
 				size={EButtonSize.L}
 				theme={EButtonTheme.BackgroundInverted}

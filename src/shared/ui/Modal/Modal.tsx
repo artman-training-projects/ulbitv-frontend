@@ -1,4 +1,4 @@
-import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import { ReactElement, useCallback, useEffect, useRef } from "react";
 
 import { classNames } from "shared/lib";
 import { Portal } from "shared/ui";
@@ -12,33 +12,28 @@ export const Modal = ({
 	children,
 	isOpen,
 	onCLose,
-}: IModalProps): ReactElement => {
-	const [isClosing, setIsClosing] = useState(false);
+}: IModalProps): ReactElement | null => {
 	const timerRef = useRef<ReturnType<typeof setTimeout>>();
+	const modalRef = useRef<HTMLDivElement>(null);
 
-	const mods: Record<string, boolean> = {
-		[styles.opened]: isOpen,
-		[styles.isClosing]: isClosing,
-	};
-
-	const handleClose = useCallback(() => {
+	const onCloseClick = useCallback(() => {
 		if (onCLose) {
-			setIsClosing(true);
+			modalRef.current.classList.add(styles.isClosing);
 			timerRef.current = setTimeout(() => {
 				onCLose();
-				setIsClosing(false);
+				modalRef.current.classList.remove(styles.isClosing);
 			}, ANIMATION_DELAY);
 		}
 	}, [onCLose]);
 
-	const handleContent = (event: any) => {
+	const onContentClick = (event: any) => {
 		event.stopPropagation();
 	};
 
 	useEffect(() => {
 		const onKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Escape") {
-				handleClose();
+				onCloseClick();
 			}
 		};
 
@@ -50,13 +45,23 @@ export const Modal = ({
 			clearTimeout(timerRef.current);
 			window.removeEventListener("keydown", onKeyDown);
 		};
-	}, [handleClose, isOpen]);
+	}, [onCloseClick, isOpen]);
+
+	useEffect(() => {
+		if (isOpen) {
+			modalRef.current.classList.add(styles.opened);
+		}
+	}, [isOpen]);
+
+	if (!isOpen) {
+		return null;
+	}
 
 	return (
 		<Portal>
-			<div className={classNames(styles.modal, mods, [className])}>
-				<div className={styles.overlay} onClick={handleClose}>
-					<div className={styles.content} onClick={handleContent}>
+			<div ref={modalRef} className={classNames(styles.modal, {}, [className])}>
+				<div className={styles.overlay} onClick={onCloseClick}>
+					<div className={styles.content} onClick={onContentClick}>
 						{children}
 					</div>
 				</div>

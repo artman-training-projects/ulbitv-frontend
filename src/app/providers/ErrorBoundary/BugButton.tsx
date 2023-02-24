@@ -7,7 +7,7 @@ export const BugButton = (): ReactElement => {
 	const { t } = useTranslation();
 	const [error, setError] = useState(false);
 
-	const handleThrowError = () => setError(true);
+	const onThrowErrorClick = () => setError(true);
 
 	useEffect(() => {
 		if (error) {
@@ -15,5 +15,5 @@ export const BugButton = (): ReactElement => {
 		}
 	}, [error]);
 
-	return <Button onClick={handleThrowError}>{t("throw error")}</Button>;
+	return <Button onClick={onThrowErrorClick}>{t("throw error")}</Button>;
 };
