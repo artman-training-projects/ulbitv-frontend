@@ -1,8 +1,8 @@
 import { PropsWithChildren } from "react";
 
 export enum ETheme {
-	Light = "light",
-	Dark = "dark",
+	Light = "app_light_theme",
+	Dark = "app_dark_theme",
 }
 
 export interface IThemeContextProps {
