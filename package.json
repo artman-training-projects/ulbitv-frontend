@@ -22,7 +22,17 @@
 		"test:ui:json": "node scripts/generate-visual-json-report.js",
 		"test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
 		"storybook": "start-storybook -p 6006 -c ./config/storybook",
-		"storybook:build": "build-storybook -c ./config/storybook"
+		"storybook:build": "build-storybook -c ./config/storybook",
+		"lint:staged": "lint-staged",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"./src/**/*.{js,jsx,ts,tsx}": [
+			"npm run lint:ts:fix"
+		],
+		"./src/**/*.{css,scss}": [
+			"npm run lint:scss:fix"
+		]
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.3",
@@ -72,10 +82,12 @@
 		"eslint-plugin-storybook": "^0.6.10",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",
+		"husky": "^8.0.0",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^29.4.3",
 		"jest-environment-jsdom": "^29.4.3",
 		"json-server": "^0.17.2",
+		"lint-staged": "^13.1.2",
 		"loki": "^0.31.0",
 		"mini-css-extract-plugin": "^2.7.2",
 		"reg-cli": "^0.17.7",

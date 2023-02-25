@@ -4,9 +4,9 @@ import { Input } from "./Input";
 
 describe("<Input />", () => {
 	test("render", () => {
-		render(<Input value="value" />);
+		render(<Input data-testid="input" />);
 
-		const button = screen.getByText("test");
+		const button = screen.queryByTestId("input");
 		expect(button).toBeInTheDocument();
 	});
 });
