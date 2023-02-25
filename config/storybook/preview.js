@@ -5,6 +5,8 @@ import { ETheme } from "../../src/app/providers/ThemeProvider";
 import {
 	StyleDecorator,
 	RouterDecorator,
+	StoreDecorator,
+	I18nDecorator,
 } from "../../src/shared/config/storybook";
 
 export const parameters = {
@@ -17,5 +19,7 @@ export const parameters = {
 	},
 };
 
-addDecorator(StyleDecorator(ETheme.Light));
+addDecorator(StoreDecorator);
 addDecorator(RouterDecorator);
+addDecorator(I18nDecorator);
+addDecorator(StyleDecorator(ETheme.Light));

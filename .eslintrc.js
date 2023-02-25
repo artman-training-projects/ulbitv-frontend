@@ -47,6 +47,7 @@ module.exports = {
 		"no-tabs": "off",
 		"no-param-reassign": "off",
 		"object-curly-newline": "off",
+		"operator-linebreak": "off",
 		"max-len": "off",
 		"comma-dangle": "off",
 		"jsx-a11y/no-static-element-interactions": "off",

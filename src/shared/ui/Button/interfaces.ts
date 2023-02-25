@@ -20,4 +20,5 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: EButtonTheme;
 	square?: boolean;
 	size?: EButtonSize;
+	disabled?: boolean;
 }

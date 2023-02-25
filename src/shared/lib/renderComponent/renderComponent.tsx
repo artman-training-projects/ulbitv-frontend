@@ -5,6 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 
 import { IStateSchema, StoreProvider } from "app/providers/StoreProvider";
 import i18nForTests from "shared/config/i18n/i18nForTests";
+
 import { IRenderOptions } from "./interfaces";
 
 export function renderComponent(

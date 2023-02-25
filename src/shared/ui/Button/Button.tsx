@@ -11,15 +11,18 @@ export const Button = ({
 	theme,
 	square,
 	size = EButtonSize.M,
+	disabled,
 	...otherProps
 }: IButtonProps): ReactElement => {
 	const classNameMpds: Record<string, boolean> = {
 		[styles.square]: square,
+		[styles.disabled]: disabled,
 	};
 
 	return (
 		<button
 			type="button"
+			disabled={disabled}
 			className={classNames(styles.button, classNameMpds, [
 				className,
 				styles[theme],
