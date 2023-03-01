@@ -20,8 +20,9 @@ export const Navbar = ({ className }: INavbarProps): ReactElement => {
 	const onCloseModal = useCallback(() => setIsAuthModal(false), []);
 
 	const onLogoutClick = useCallback(() => {
+		onCloseModal();
 		dispatch(userActions.logout());
-	}, [dispatch]);
+	}, [dispatch, onCloseModal]);
 
 	if (authData) {
 		return (

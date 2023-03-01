@@ -1,6 +1,6 @@
 {
 	"name": "production-on-react",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"license": "Unlicense",
 	"author": "Vladimir Artyukhov",
 	"description": "В Production на React",

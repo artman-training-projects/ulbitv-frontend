@@ -2,66 +2,85 @@ import { memo, ReactElement, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
-import { classNames } from "shared/lib";
+import {
+	classNames,
+	TReducersList,
+	useDynamicReducersLoader,
+} from "shared/lib";
 import { Button, ETextTheme, Input, Text } from "shared/ui";
 
 import { loginByUsername } from "../../model/services/loginByUsername";
-import { getLoginState } from "../../model/selectors/getLoginState";
-import { loginActions } from "../../model/slice/loginSlice";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername";
+import { getLoginPassword } from "../../model/selectors/getLoginPassword";
+import { getLoginError } from "../../model/selectors/getLoginError";
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading";
 
 import { ILoginFormProps } from "./interfaces";
 import styles from "./LoginForm.module.scss";
 
-export const LoginForm = memo(
-	({ className }: ILoginFormProps): ReactElement => {
-		const { t } = useTranslation();
-		const dispatch = useDispatch();
-		const { password, username, isLoading, error } = useSelector(getLoginState);
+const initReducers: TReducersList = {
+	loginForm: loginReducer,
+};
 
-		const onUsernameChange = useCallback(
-			(value: string) => {
-				dispatch(loginActions.setUsername(value));
-			},
-			[dispatch]
-		);
+const LoginForm = memo(({ className }: ILoginFormProps): ReactElement => {
+	const { t } = useTranslation();
+	const dispatch = useDispatch();
 
-		const onPasswordChange = useCallback(
-			(value: string) => {
-				dispatch(loginActions.setPassword(value));
-			},
-			[dispatch]
-		);
+	const username = useSelector(getLoginUsername);
+	const password = useSelector(getLoginPassword);
+	const isLoading = useSelector(getLoginIsLoading);
+	const error = useSelector(getLoginError);
 
-		const onLoginClick = useCallback(() => {
-			dispatch(loginByUsername({ password, username }));
-		}, [dispatch, password, username]);
+	useDynamicReducersLoader({
+		reducers: initReducers,
+	});
 
-		return (
-			<div className={classNames(styles.loginForm, {}, [className])}>
-				{error && <Text text={error} theme={ETextTheme.Error} />}
+	const onUsernameChange = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setUsername(value));
+		},
+		[dispatch]
+	);
 
-				<Input
-					type="text"
-					placeholder="Введите username"
-					value={username}
-					onChange={onUsernameChange}
-					autoFocus
-				/>
-				<Input
-					type="text"
-					placeholder="Введите password"
-					value={password}
-					onChange={onPasswordChange}
-				/>
+	const onPasswordChange = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setPassword(value));
+		},
+		[dispatch]
+	);
 
-				<Button
-					className={styles.loginButton}
-					onClick={onLoginClick}
-					disabled={isLoading}
-				>
-					{t("Войти")}
-				</Button>
-			</div>
-		);
-	}
-);
+	const onLoginClick = useCallback(() => {
+		dispatch(loginByUsername({ password, username }));
+	}, [dispatch, password, username]);
+
+	return (
+		<div className={classNames(styles.loginForm, {}, [className])}>
+			{error && <Text text={error} theme={ETextTheme.Error} />}
+
+			<Input
+				type="text"
+				placeholder="Введите username"
+				value={username}
+				onChange={onUsernameChange}
+				autoFocus
+			/>
+			<Input
+				type="text"
+				placeholder="Введите password"
+				value={password}
+				onChange={onPasswordChange}
+			/>
+
+			<Button
+				className={styles.loginButton}
+				onClick={onLoginClick}
+				disabled={isLoading}
+			>
+				{t("Войти")}
+			</Button>
+		</div>
+	);
+});
+
+export default LoginForm;

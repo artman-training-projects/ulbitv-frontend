@@ -1,3 +1,3 @@
 export { StoreProvider } from "./StoreProvider";
-export { createReduxStore } from "./store";
-export { IStateSchema } from "./StateSchema";
+export { createReduxStore } from "./config/store";
+export { IStateSchema, IReduxStoreWithManager } from "./config/StateSchema";
