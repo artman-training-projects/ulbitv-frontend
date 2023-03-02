@@ -2,12 +2,13 @@ import { memo, ReactElement, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
+import { classNames } from "shared/lib";
+import { Button, ETextTheme, Input, Text } from "shared/ui";
+
 import {
-	classNames,
 	TReducersList,
 	useDynamicReducersLoader,
-} from "shared/lib";
-import { Button, ETextTheme, Input, Text } from "shared/ui";
+} from "shared/hooks/useDynamicReducersLoader";
 
 import { loginByUsername } from "../../model/services/loginByUsername";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
