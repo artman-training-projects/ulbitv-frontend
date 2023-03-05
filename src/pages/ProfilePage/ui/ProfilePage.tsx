@@ -1,6 +1,11 @@
-import { profileReducer } from "entities/Profile";
-import { memo, ReactElement } from "react";
-import { useTranslation } from "react-i18next";
+import { memo, ReactElement, useEffect } from "react";
+
+import {
+	fetchProfileData,
+	ProfileCard,
+	profileReducer,
+} from "entities/Profile";
+import { useAppDispatch } from "shared/hooks/useAppDispatch";
 
 import {
 	TReducersList,
@@ -12,10 +17,19 @@ const reducers: TReducersList = {
 };
 
 const ProfilePage = memo((): ReactElement => {
-	const { t } = useTranslation("profile");
+	const dispatch = useAppDispatch();
+
 	useDynamicReducersLoader({ reducers, removeAfterUnmount: true });
 
-	return <div>{t("Профиль")}</div>;
+	useEffect(() => {
+		dispatch(fetchProfileData());
+	}, [dispatch]);
+
+	return (
+		<div>
+			<ProfileCard />
+		</div>
+	);
 });
 
 export default ProfilePage;
