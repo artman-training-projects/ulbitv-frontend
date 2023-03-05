@@ -7,5 +7,14 @@
 	],
 	"comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
 	"users": [{ "id": "1", "username": "admin", "password": "1234" }],
-	"profile": { "name": "typicode" }
+	"profile": {
+		"first": "Имя",
+		"lastname": "Фамилия",
+		"age": 33,
+		"currency": "RUB",
+		"country": "Russia",
+		"city": "Moscow",
+		"username": "admin",
+		"avatar": "https://i.pravatar.cc/300"
+	}
 }

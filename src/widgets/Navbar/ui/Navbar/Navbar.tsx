@@ -1,18 +1,19 @@
 import { getUserAuthData, userActions } from "entities/User";
-import { ReactElement, useCallback, useState } from "react";
+import { memo, ReactElement, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { LoginModal } from "features/AuthByUsername";
 import { classNames } from "shared/lib";
 import { Button, EButtonTheme } from "shared/ui";
+import { useAppDispatch } from "shared/hooks/useAppDispatch";
 
 import { INavbarProps } from "./interfaces";
 import styles from "./Navbar.module.scss";
 
-export const Navbar = ({ className }: INavbarProps): ReactElement => {
+export const Navbar = memo(({ className = "" }: INavbarProps): ReactElement => {
 	const { t } = useTranslation();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(getUserAuthData);
 
@@ -20,9 +21,8 @@ export const Navbar = ({ className }: INavbarProps): ReactElement => {
 	const onCloseModal = useCallback(() => setIsAuthModal(false), []);
 
 	const onLogoutClick = useCallback(() => {
-		onCloseModal();
 		dispatch(userActions.logout());
-	}, [dispatch, onCloseModal]);
+	}, [dispatch]);
 
 	if (authData) {
 		return (
@@ -51,4 +51,4 @@ export const Navbar = ({ className }: INavbarProps): ReactElement => {
 			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 		</div>
 	);
-};
+});

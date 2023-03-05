@@ -5,12 +5,12 @@ import { AppRoute } from "app/providers/router";
 import { classNames } from "shared/lib";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
-import { useDispatch } from "react-redux";
 import { userActions } from "entities/User";
+import { useAppDispatch } from "shared/hooks/useAppDispatch";
 
 const App = (): ReactElement => {
 	const { theme } = useTheme();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(userActions.initAuthData());

@@ -7,7 +7,7 @@ import styles from "./Input.module.scss";
 
 export const Input = memo(
 	({
-		className,
+		className = "",
 		value,
 		type = "text",
 		onChange,

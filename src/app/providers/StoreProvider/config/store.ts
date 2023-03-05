@@ -27,3 +27,5 @@ export function createReduxStore({
 
 	return store;
 }
+
+export type TAppDispatch = ReturnType<typeof createReduxStore>["dispatch"];

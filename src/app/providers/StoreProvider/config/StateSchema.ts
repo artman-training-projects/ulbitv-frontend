@@ -7,10 +7,12 @@ import {
 
 import { ILoginSchema } from "features/AuthByUsername";
 import { IUserSchema } from "entities/User";
+import { IProfileSchema } from "entities/Profile";
 
 export interface IStateSchema {
 	user: IUserSchema;
 	loginForm?: ILoginSchema;
+	profile?: IProfileSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

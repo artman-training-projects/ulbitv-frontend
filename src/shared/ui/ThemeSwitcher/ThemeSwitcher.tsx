@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { memo, ReactElement } from "react";
 
 import { classNames } from "shared/lib";
 import { ETheme, useTheme } from "app/providers/ThemeProvider";
@@ -7,17 +7,17 @@ import { LightIcon, DarkIcon } from "shared/assets/icons";
 
 import { IThemeSwitcherProps } from "./interfaces";
 
-export const ThemeSwitcher = ({
-	className,
-}: IThemeSwitcherProps): ReactElement => {
-	const { theme, toggleTheme } = useTheme();
-	return (
-		<Button
-			theme={EButtonTheme.Clear}
-			onClick={toggleTheme}
-			className={classNames("", {}, [className])}
-		>
-			{theme === ETheme.Light ? <LightIcon /> : <DarkIcon />}
-		</Button>
-	);
-};
+export const ThemeSwitcher = memo(
+	({ className = "" }: IThemeSwitcherProps): ReactElement => {
+		const { theme, toggleTheme } = useTheme();
+		return (
+			<Button
+				theme={EButtonTheme.Clear}
+				onClick={toggleTheme}
+				className={classNames("", {}, [className])}
+			>
+				{theme === ETheme.Light ? <LightIcon /> : <DarkIcon />}
+			</Button>
+		);
+	}
+);

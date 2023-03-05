@@ -8,7 +8,7 @@ import { ANIMATION_DELAY } from "./constants";
 import styles from "./Modal.module.scss";
 
 export const Modal = ({
-	className,
+	className = "",
 	children,
 	isOpen,
 	onCLose,
@@ -18,10 +18,10 @@ export const Modal = ({
 
 	const onCloseClick = useCallback(() => {
 		if (onCLose) {
-			modalRef.current.classList.add(styles.isClosing);
+			modalRef.current?.classList.add(styles.isClosing);
 			timerRef.current = setTimeout(() => {
 				onCLose();
-				modalRef.current.classList.remove(styles.isClosing);
+				modalRef.current?.classList.remove(styles.isClosing);
 			}, ANIMATION_DELAY);
 		}
 	}, [onCLose]);
@@ -49,7 +49,7 @@ export const Modal = ({
 
 	useEffect(() => {
 		if (isOpen) {
-			modalRef.current.classList.add(styles.opened);
+			modalRef.current?.classList.add(styles.opened);
 		}
 	}, [isOpen]);
 

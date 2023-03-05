@@ -1,15 +1,16 @@
 import { useEffect } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useStore } from "react-redux";
 
 import { IReduxStoreWithManager } from "app/providers/StoreProvider";
 
 import { IDynamicModuleLoader, TReducersListEntry } from "./interfaces";
+import { useAppDispatch } from "../useAppDispatch";
 
 export const useDynamicReducersLoader = ({
 	reducers,
 	removeAfterUnmount,
 }: IDynamicModuleLoader): void => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const store = useStore() as IReduxStoreWithManager;
 
 	useEffect(() => {
@@ -23,7 +24,7 @@ export const useDynamicReducersLoader = ({
 				Object.entries(reducers).forEach(
 					([name, reducer]: TReducersListEntry) => {
 						store.reducerManager.add(name, reducer);
-						dispatch({ type: `@INIT ${name} reducer` });
+						dispatch({ type: `@DESTROY ${name} reducer` });
 					}
 				);
 			}

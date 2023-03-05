@@ -1,6 +1,4 @@
-import { RoutePath } from "app/providers/router";
-import { ReactElement, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { memo, ReactElement, useMemo, useState } from "react";
 
 import { classNames } from "shared/lib";
 import {
@@ -9,66 +7,56 @@ import {
 	LangSwitcher,
 	ThemeSwitcher,
 	EButtonSize,
-	AppLink,
-	EAppLinkTheme,
 } from "shared/ui";
 
-import { AboutIcon, MainIcon } from "shared/assets/icons";
+import { SidebarItemsList } from "../../model/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 import { ISidebarProps } from "./interfaces";
-
 import styles from "./Sidebar.module.scss";
 
-export const Sidebar = ({ className }: ISidebarProps): ReactElement => {
-	const [collapsed, setCollapsed] = useState(false);
-	const { t: tAbout } = useTranslation("about");
-	const { t: tMain } = useTranslation("main");
+export const Sidebar = memo(
+	({ className = "" }: ISidebarProps): ReactElement => {
+		const [collapsed, setCollapsed] = useState(false);
 
-	const onToggleClick = (): void => setCollapsed((prev) => !prev);
+		const onToggleClick = (): void => setCollapsed((prev) => !prev);
 
-	return (
-		<div
-			data-testid="Sidebar"
-			className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
-				className,
-			])}
-		>
-			<Button
-				className={styles.collapsedButton}
-				data-testid="Sidebar-toggle"
-				type="button"
-				onClick={onToggleClick}
-				square
-				size={EButtonSize.L}
-				theme={EButtonTheme.BackgroundInverted}
+		const itemsList = useMemo(
+			() =>
+				SidebarItemsList.map((item) => (
+					<SidebarItem item={item} collapsed={collapsed} key={item.path} />
+				)),
+			[collapsed]
+		);
+
+		return (
+			<div
+				data-testid="Sidebar"
+				className={classNames(
+					styles.sidebar,
+					{ [styles.collapsed]: collapsed },
+					[className]
+				)}
 			>
-				{collapsed ? ">" : "<"}
-			</Button>
-
-			<div className={styles.items}>
-				<AppLink
-					theme={EAppLinkTheme.Secondary}
-					to={RoutePath.main}
-					className={styles.item}
+				<Button
+					className={styles.collapsedButton}
+					data-testid="Sidebar-toggle"
+					type="button"
+					onClick={onToggleClick}
+					square
+					size={EButtonSize.L}
+					theme={EButtonTheme.BackgroundInverted}
 				>
-					<MainIcon className={styles.icon} />
-					<span className={styles.link}>{tMain("Главная")}</span>
-				</AppLink>
+					{collapsed ? ">" : "<"}
+				</Button>
 
-				<AppLink
-					theme={EAppLinkTheme.Secondary}
-					to={RoutePath.about}
-					className={styles.item}
-				>
-					<AboutIcon className={styles.icon} />
-					<span className={styles.link}>{tAbout("О сайте")}</span>
-				</AppLink>
-			</div>
+				<div className={styles.items}>{itemsList}</div>
 
-			<div className={styles.switchers}>
-				<ThemeSwitcher />
-				<LangSwitcher short={collapsed} />
+				<div className={styles.switchers}>
+					<ThemeSwitcher />
+					<LangSwitcher short={collapsed} />
+				</div>
 			</div>
-		</div>
-	);
-};
+		);
+	}
+);
