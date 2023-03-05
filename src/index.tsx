@@ -9,15 +9,16 @@ import { ThemeProvider } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import "shared/config/i18n/i18n";
 
+/** @ts-ignore */
 const root = createRoot(document.getElementById("root"));
 root.render(
-	<StoreProvider>
-		<BrowserRouter>
+	<BrowserRouter>
+		<StoreProvider>
 			<ErrorBoundary>
 				<ThemeProvider>
 					<App />
 				</ThemeProvider>
 			</ErrorBoundary>
-		</BrowserRouter>
-	</StoreProvider>
+		</StoreProvider>
+	</BrowserRouter>
 );

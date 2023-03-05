@@ -4,6 +4,8 @@ import {
 	Reducer,
 	ReducersMapObject,
 } from "@reduxjs/toolkit";
+import { NavigateFunction } from "react-router-dom";
+import { AxiosInstance } from "axios";
 
 import { ILoginSchema } from "features/AuthByUsername";
 import { IUserSchema } from "entities/User";
@@ -31,4 +33,15 @@ export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {
 export interface ICreateReduxStore {
 	initialState?: IStateSchema;
 	asyncReducers?: ReducersMapObject<IStateSchema>;
+	navigate?: NavigateFunction;
+}
+
+export interface IThunkExtraArg {
+	api: AxiosInstance;
+	navigate: NavigateFunction;
+}
+
+export interface IThunkConfig<T> {
+	rejectValue: T;
+	extra: IThunkExtraArg;
 }

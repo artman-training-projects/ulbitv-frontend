@@ -12,9 +12,11 @@ export interface IBuildOptions {
 	paths: IBuildPaths;
 	isDev: boolean;
 	port: number;
+	apiUrl: string;
 }
 
 export interface IBuildEnv {
 	mode: WebpackConfiguration["mode"];
 	port: number;
+	apiUrl: string;
 }
