@@ -13,17 +13,17 @@ export interface ISidebarItem {
 export const SidebarItemsList: ISidebarItem[] = [
 	{
 		icon: MainIcon,
-		path: routeConfig.main.path,
+		path: routeConfig.main.path || "",
 		text: "Главная",
 	},
 	{
 		icon: AboutIcon,
-		path: routeConfig.about.path,
+		path: routeConfig.about.path || "",
 		text: "О сайте",
 	},
 	{
 		icon: ProfileIcon,
-		path: routeConfig.profile.path,
+		path: routeConfig.profile.path || "",
 		text: "Профиль",
 	},
 ];

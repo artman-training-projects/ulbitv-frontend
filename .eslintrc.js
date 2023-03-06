@@ -46,6 +46,7 @@ module.exports = {
 		"no-underscore-dangle": "off",
 		"no-tabs": "off",
 		"no-param-reassign": "off",
+		"no-undef": "off",
 		"object-curly-newline": "off",
 		"operator-linebreak": "off",
 		"max-len": "off",

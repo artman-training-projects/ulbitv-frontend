@@ -36,12 +36,12 @@ export interface ICreateReduxStore {
 	navigate?: NavigateFunction;
 }
 
-export interface IThunkExtraArg {
+export interface IThunkExtraArgs {
 	api: AxiosInstance;
-	navigate: NavigateFunction;
+	navigate?: NavigateFunction;
 }
 
 export interface IThunkConfig<T> {
 	rejectValue: T;
-	extra: IThunkExtraArg;
+	extra: IThunkExtraArgs;
 }

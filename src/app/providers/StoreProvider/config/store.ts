@@ -1,9 +1,18 @@
-import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
+import {
+	CombinedState,
+	configureStore,
+	Reducer,
+	ReducersMapObject,
+} from "@reduxjs/toolkit";
 
 import { userReducer } from "entities/User";
 import { api } from "shared/api/api";
 
-import { ICreateReduxStore, IStateSchema } from "./StateSchema";
+import {
+	ICreateReduxStore,
+	IStateSchema,
+	IThunkExtraArgs,
+} from "./StateSchema";
 import { createReducerManager } from "./reducerManager";
 
 export function createReduxStore({
@@ -20,8 +29,7 @@ export function createReduxStore({
 
 	const store = configureStore<IStateSchema>({
 		preloadedState: initialState,
-		/** @ts-ignore */
-		reducer: reducerManager.reduce,
+		reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
 		devTools: __IS_DEV__,
 		/** @ts-ignore */
 		middleware: (getDefaultMiddleware) =>
@@ -30,7 +38,7 @@ export function createReduxStore({
 					extraArgument: {
 						api,
 						navigate,
-					},
+					} as IThunkExtraArgs,
 				},
 			}),
 	});

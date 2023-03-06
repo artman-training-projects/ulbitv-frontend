@@ -14,7 +14,6 @@ export const SidebarItem = memo(
 			<AppLink
 				theme={EAppLinkTheme.Secondary}
 				to={path}
-				data-testid="Sidebar"
 				className={classNames(styles.item, { [styles.collapsed]: collapsed })}
 			>
 				<Icon className={styles.icon} />

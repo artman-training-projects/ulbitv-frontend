@@ -20,10 +20,9 @@ describe("classNames", () => {
 	test("with mods", () => {
 		const classes = "someClass";
 		const additionalClasses = ["class1", "class2"];
-		const mods = {
+		const mods: Record<string, boolean> = {
 			hovered: true,
 			scrollable: false,
-			active: undefined as undefined,
 		};
 		const expected = `${classes} ${additionalClasses.join(" ")} hovered`;
 

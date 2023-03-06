@@ -24,6 +24,13 @@ declare module "*.jpeg" {
 	export default src;
 }
 
+declare type DeepPartial<T> = T extends object
+	? {
+			[P in keyof T]?: DeepPartial<T[P]>;
+			// eslint-disable-next-line
+	  }
+	: T;
+
 declare const __IS_DEV__: boolean;
 
 declare const __API__: string;

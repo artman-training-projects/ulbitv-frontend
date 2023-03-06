@@ -3,7 +3,8 @@ import { useStore } from "react-redux";
 
 import { IReduxStoreWithManager } from "app/providers/StoreProvider";
 
-import { IDynamicModuleLoader, TReducersListEntry } from "./interfaces";
+import { TStateSchemaKey } from "app/providers/StoreProvider/config/StateSchema";
+import { IDynamicModuleLoader } from "./interfaces";
 import { useAppDispatch } from "../useAppDispatch";
 
 export const useDynamicReducersLoader = ({
@@ -14,19 +15,17 @@ export const useDynamicReducersLoader = ({
 	const store = useStore() as IReduxStoreWithManager;
 
 	useEffect(() => {
-		Object.entries(reducers).forEach(([name, reducer]: TReducersListEntry) => {
-			store.reducerManager.add(name, reducer);
+		Object.entries(reducers).forEach(([name, reducer]) => {
+			store.reducerManager.add(name as TStateSchemaKey, reducer);
 			dispatch({ type: `@INIT ${name} reducer` });
 		});
 
 		return () => {
 			if (removeAfterUnmount) {
-				Object.entries(reducers).forEach(
-					([name, reducer]: TReducersListEntry) => {
-						store.reducerManager.add(name, reducer);
-						dispatch({ type: `@DESTROY ${name} reducer` });
-					}
-				);
+				Object.entries(reducers).forEach(([name, reducer]) => {
+					store.reducerManager.add(name as TStateSchemaKey, reducer);
+					dispatch({ type: `@DESTROY ${name} reducer` });
+				});
 			}
 		};
 		// eslint-disable-next-line
